@@ -1,36 +1,59 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CV en ligne de Jimmy Puma, stagiaire cybersécurité à la recherche d'un stage SOC junior ou pentest.">
-  <title>Jimmy Puma | CV Cybersécurité</title>
+  <meta
+    name="description"
+    content="CV en ligne de Jimmy Puma, stagiaire cybers&eacute;curit&eacute; en recherche d'un stage SOC junior ou pentest."
+  >
+  <title>Jimmy Puma | Stagiaire Cybers&eacute;curit&eacute;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
   <style>
     :root {
       color-scheme: dark;
-      --bg: #041009;
-      --panel: rgba(9, 20, 14, 0.82);
-      --panel-strong: rgba(12, 26, 18, 0.92);
-      --border: rgba(141, 255, 159, 0.15);
-      --text: #e8f8ec;
-      --muted: #9fc0ab;
-      --green: #8dff9f;
-      --cyan: #79e8ff;
-      --amber: #ffca72;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --bg: #07111a;
+      --bg-soft: rgba(12, 29, 43, 0.82);
+      --panel: rgba(11, 24, 36, 0.82);
+      --panel-strong: rgba(10, 19, 29, 0.92);
+      --line: rgba(115, 214, 209, 0.16);
+      --text: #edf6f7;
+      --muted: #95a7b6;
+      --accent: #62f4d2;
+      --accent-strong: #12d7b0;
+      --accent-soft: rgba(98, 244, 210, 0.14);
+      --warning: #7cf0ff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --container: 1180px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Fira Code", "IBM Plex Mono", Consolas, monospace;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(121, 232, 255, 0.08), transparent 22%),
-        radial-gradient(circle at 85% 15%, rgba(141, 255, 159, 0.08), transparent 26%),
-        linear-gradient(180deg, #020503 0%, #041009 45%, #020704 100%);
+        radial-gradient(circle at top left, rgba(34, 174, 185, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(18, 215, 176, 0.12), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(23, 104, 165, 0.24), transparent 30%),
+        linear-gradient(145deg, #04090f 0%, #07111a 40%, #091827 100%);
+      position: relative;
       overflow-x: hidden;
     }
 
@@ -38,60 +61,650 @@
       content: "";
       position: fixed;
       inset: 0;
-      background:
-        repeating-linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.028) 0,
-          rgba(255, 255, 255, 0.028) 1px,
-          transparent 1px,
-          transparent 4px
-        );
-      opacity: 0.25;
+      background-image:
+        linear-gradient(rgba(98, 244, 210, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98, 244, 210, 0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
       pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(98, 244, 210, 0.045) 48%,
+          rgba(98, 244, 210, 0.12) 50%,
+          rgba(98, 244, 210, 0.045) 52%,
+          transparent 100%
+        );
+      transform: translateY(-100%);
+      animation: scan 10s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      width: min(1160px, calc(100% - 28px));
+      width: min(var(--container), calc(100% - 32px));
       margin: 0 auto;
-      padding: 28px 0 40px;
       position: relative;
       z-index: 1;
+      padding: 36px 0 48px;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
-    .chip {
+    .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(8, 18, 13, 0.72);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      font-size: 0.76rem;
-      letter-spacing: 0.12em;
+      gap: 12px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      font-family: "IBM Plex Mono", monospace;
     }
 
-    .brand { color: var(--cyan); }
-    .availability { color: var(--amber); }
+    .brand::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0%, rgba(98, 244, 210, 0.15) 70%);
+      box-shadow: 0 0 22px rgba(98, 244, 210, 0.65);
+    }
+
+    .availability {
+      padding: 8px 14px;
+      border: 1px solid rgba(124, 240, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(124, 240, 255, 0.08);
+      color: #dffeff;
+      font-family: "IBM Plex Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
 
     .card {
-      background: linear-gradient(180deg, rgba(8, 16, 12, 0.58), rgba(5, 11, 9, 0.82));
-      border: 1px solid var(--border);
-      border-radius: 22px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(14, 30, 44, 0.95), rgba(9, 20, 31, 0.88));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       overflow: hidden;
       backdrop-filter: blur(18px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(98, 244, 210, 0.1), transparent 24%, transparent 76%, rgba(124, 240, 255, 0.08));
+      pointer-events: none;
+    }
+
+    .hero {
+      padding: 38px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(98, 244, 210, 0.26);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-family: "IBM Plex Mono", monospace;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(98, 244, 210, 0.7);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .headline {
+      margin: 14px 0 20px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #d7f5f5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+    }
+
+    .headline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .headline span::before {
+      content: "/";
+      color: var(--accent);
+      opacity: 0.75;
+    }
+
+    .intro {
+      margin: 0 0 28px;
+      max-width: 64ch;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: #d5e3ea;
+    }
+
+    .hero-panels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-panel {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(5, 15, 24, 0.45);
+      border: 1px solid rgba(98, 244, 210, 0.12);
+    }
+
+    .mini-panel .label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      margin-bottom: 8px;
+    }
+
+    .mini-panel strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.5;
+      color: #f2ffff;
+    }
+
+    .portrait-card {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .portrait {
+      position: relative;
+      min-height: 440px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(98, 244, 210, 0.18);
+      background: #06111a;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.96) contrast(1.04);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(4, 10, 15, 0.2) 42%, rgba(4, 10, 15, 0.78) 100%),
+        linear-gradient(135deg, rgba(98, 244, 210, 0.06), transparent 40%);
+      pointer-events: none;
+    }
+
+    .portrait-meta {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(5, 14, 20, 0.72);
+      border: 1px solid rgba(98, 244, 210, 0.18);
+      backdrop-filter: blur(14px);
+    }
+
+    .portrait-meta strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .portrait-meta span {
+      color: #c9dbe5;
+      font-size: 0.95rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(98, 244, 210, 0.1);
+      border: 1px solid rgba(98, 244, 210, 0.16);
+      color: #d8fffb;
+      font-size: 0.86rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .section {
+      padding: 30px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 22px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 18px 18px 22px;
+      border-radius: 18px;
+      background: rgba(6, 15, 23, 0.55);
+      border: 1px solid rgba(98, 244, 210, 0.1);
+      overflow: hidden;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), rgba(98, 244, 210, 0.08));
+    }
+
+    .timeline-item .period {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #c2d2db;
+      line-height: 1.65;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stack-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(6, 15, 23, 0.55);
+      border: 1px solid rgba(98, 244, 210, 0.1);
+    }
+
+    .stack-item > strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.98rem;
+    }
+
+    .stack-item p {
+      margin: 0;
+      color: #c8d6de;
+      line-height: 1.65;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 10px 13px;
+      border-radius: 14px;
+      border: 1px solid rgba(124, 240, 255, 0.15);
+      background: rgba(124, 240, 255, 0.08);
+      color: #e6ffff;
+      font-size: 0.92rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(6, 15, 23, 0.55);
+      border: 1px solid rgba(98, 244, 210, 0.1);
+    }
+
+    .contact-item > span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: "IBM Plex Mono", monospace;
+      margin-bottom: 8px;
+    }
+
+    .contact-item strong,
+    .contact-item a {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #f5ffff;
+      word-break: break-word;
+    }
+
+    .phone-link,
+    .private-link {
+      display: inline-block;
+    }
+
+    .phone-mask,
+    .private-mask {
+      display: inline-block;
+      filter: blur(6px);
+      opacity: 0.92;
+      transition: filter 220ms ease, opacity 220ms ease, letter-spacing 220ms ease;
+      letter-spacing: 0.04em;
+    }
+
+    .phone-link:hover .phone-mask,
+    .phone-link:focus-visible .phone-mask,
+    .phone-link:active .phone-mask,
+    .private-link:hover .private-mask,
+    .private-link:focus-visible .private-mask,
+    .private-link:active .private-mask {
+      filter: blur(0);
+      opacity: 1;
+      letter-spacing: 0;
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(98, 244, 210, 0.08);
+      border: 1px solid rgba(98, 244, 210, 0.16);
+      color: #daf5f2;
+      line-height: 1.7;
+    }
+
+    .footer-note strong {
+      color: #ffffff;
+    }
+
+    /* Terminal / Terminator-inspired skin overrides */
+    :root {
+      --term-green: #8dff9f;
+      --term-cyan: #79e8ff;
+      --term-amber: #ffca72;
+      --term-red: #ff8d8d;
+      --term-violet: #b0b8ff;
+      --term-white: #f4fff7;
+    }
+
+    body {
+      font-family: "Fira Code", "IBM Plex Mono", "Segoe UI", monospace;
+      font-feature-settings: "calt" 1;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(121, 232, 255, 0.08), transparent 22%),
+        radial-gradient(circle at 83% 16%, rgba(141, 255, 159, 0.1), transparent 24%),
+        radial-gradient(circle at 48% 100%, rgba(255, 202, 114, 0.05), transparent 28%),
+        linear-gradient(180deg, #020403 0%, #04100a 36%, #020604 100%);
+    }
+
+    body::before {
+      background:
+        linear-gradient(90deg, rgba(121, 232, 255, 0.03), transparent 12%, transparent 88%, rgba(141, 255, 159, 0.03)),
+        repeating-linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03) 0,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      opacity: 0.28;
+      mask-image: none;
+      animation: terminal-noise 18s linear infinite;
+    }
+
+    body::after {
+      background:
+        radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.16) 56%, rgba(0, 0, 0, 0.48) 100%);
+      opacity: 1;
+      animation: none;
+      transform: none;
+    }
+
+    .page {
+      width: min(1220px, calc(100% - 28px));
+      padding: 28px 0 44px;
+    }
+
+    .topbar {
+      gap: 14px;
       margin-bottom: 18px;
+      animation: panel-enter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .brand,
+    .availability {
+      padding: 10px 14px;
+      border: 1px solid rgba(141, 255, 159, 0.16);
+      background: rgba(7, 16, 12, 0.62);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      color: var(--term-cyan);
+      text-shadow: 0 0 18px rgba(121, 232, 255, 0.18);
+    }
+
+    .availability {
+      color: var(--term-amber);
+      text-shadow: 0 0 18px rgba(255, 202, 114, 0.14);
+      animation: signal-pulse 3.2s ease-in-out infinite;
+    }
+
+    .lang-toggle {
+      appearance: none;
+      border: 1px solid rgba(121, 232, 255, 0.18);
+      background: rgba(8, 18, 13, 0.66);
+      color: var(--term-cyan);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .lang-toggle:hover,
+    .lang-toggle:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(255, 202, 114, 0.24);
+      color: var(--term-amber);
+      background: rgba(255, 202, 114, 0.08);
+      outline: none;
+    }
+
+    .lang-toggle.is-busy {
+      color: var(--term-green);
+      border-color: rgba(141, 255, 159, 0.24);
+      background: rgba(141, 255, 159, 0.08);
+      box-shadow: 0 0 18px rgba(141, 255, 159, 0.12);
+    }
+
+    .brand::before {
+      width: 10px;
+      height: 10px;
+      background: #8dff9f;
+      box-shadow: 0 0 14px rgba(141, 255, 159, 0.7);
+      animation: signal-pulse 2.6s ease-in-out infinite;
+    }
+
+    .hero-grid,
+    .content-grid {
+      gap: 20px;
+    }
+
+    .hero-grid {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(8, 16, 12, 0.58), rgba(5, 11, 9, 0.76));
+      border: 1px solid rgba(141, 255, 159, 0.16);
+      border-radius: 20px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+      backdrop-filter: blur(22px);
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .card::before {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: inherit;
+    }
+
+    .hero,
+    .portrait-card,
+    .section {
+      padding: 0;
+      display: block;
+    }
+
+    .hero-grid > .card,
+    .column > .section {
+      opacity: 0;
+      animation: panel-enter 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .hero-grid > .card:nth-child(1) {
+      animation-delay: 0.08s;
+    }
+
+    .hero-grid > .card:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    .column > .section:nth-child(1) {
+      animation-delay: 0.28s;
+    }
+
+    .column > .section:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .column > .section:nth-child(3) {
+      animation-delay: 0.52s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(121, 232, 255, 0.22);
+      box-shadow: 0 34px 92px rgba(0, 0, 0, 0.38);
     }
 
     .window-bar {
@@ -115,291 +728,1715 @@
       height: 12px;
       display: block;
       border-radius: 50%;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.24), 0 0 0 1px rgba(0, 0, 0, 0.18);
     }
 
-    .window-controls span:nth-child(1) { background: #ff6b6b; }
-    .window-controls span:nth-child(2) { background: #ffd36d; }
-    .window-controls span:nth-child(3) { background: #4dd66e; }
+    .window-controls span:nth-child(1) {
+      background: #ff6b6b;
+    }
+
+    .window-controls span:nth-child(2) {
+      background: #ffd36d;
+    }
+
+    .window-controls span:nth-child(3) {
+      background: #4dd66e;
+    }
 
     .window-title {
       flex: 1;
       min-width: 0;
-      text-align: right;
-      color: var(--cyan);
+      color: var(--term-cyan);
       font-size: 0.76rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-align: right;
+      text-shadow: 0 0 18px rgba(121, 232, 255, 0.12);
+      animation: terminal-title-glow 5.6s ease-in-out infinite;
     }
 
-    .window-body { padding: 24px 28px 30px; }
+    .window-body {
+      position: relative;
+      padding: 24px 28px 30px;
+    }
 
-    .command {
+    .window-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(141, 255, 159, 0.08), transparent 22%, transparent 78%, rgba(77, 214, 110, 0.05)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 18%);
+      pointer-events: none;
+    }
+
+    .window-body > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .terminal-command {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-size: 0.82rem;
+      letter-spacing: 0.04em;
     }
 
-    .prompt { color: var(--green); }
-    .cmd { color: var(--amber); }
-    .comment { color: var(--cyan); }
+    .terminal-command::after {
+      content: "_";
+      color: var(--term-green);
+      animation: ambient-caret-blink 1s steps(1) infinite;
+    }
+
+    .prompt {
+      color: var(--term-green);
+      text-shadow: 0 0 12px rgba(141, 255, 159, 0.22);
+    }
+
+    .command-text {
+      color: var(--term-amber);
+    }
+
+    .command-comment {
+      color: var(--term-cyan);
+    }
+
+    .eyebrow {
+      padding: 9px 14px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(176, 184, 255, 0.18);
+      background: rgba(176, 184, 255, 0.1);
+      color: var(--term-violet);
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+    }
+
+    .eyebrow::before {
+      content: ">";
+      box-shadow: none;
+      background: none;
+      width: auto;
+      height: auto;
+    }
 
     h1 {
-      margin: 0 0 12px;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
       font-size: clamp(2.6rem, 5vw, 4.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(90deg, #f4fff7 0%, var(--cyan) 45%, var(--green) 100%);
+      background: linear-gradient(90deg, var(--term-white) 0%, var(--term-cyan) 48%, var(--term-green) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .subtitle {
-      margin: 0 0 18px;
-      color: #d6f5dc;
-      line-height: 1.75;
-      max-width: 72ch;
+    .headline {
+      gap: 10px 14px;
+      font-size: 0.95rem;
+      color: #d8f5de;
     }
 
-    .hero-actions,
-    .tag-list,
-    .pill-list {
+    .headline span {
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(8, 18, 13, 0.66);
+      border: 1px solid rgba(141, 255, 159, 0.12);
+    }
+
+    .headline span::before {
+      content: "$";
+      color: var(--term-green);
+      opacity: 1;
+    }
+
+    .intro {
+      font-size: 0.95rem;
+      line-height: 1.82;
+      color: #d2e4d7;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      margin: 0 0 24px;
     }
 
-    .action {
+    .action-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 11px 16px;
       border-radius: 999px;
       border: 1px solid rgba(121, 232, 255, 0.18);
       background: rgba(8, 18, 13, 0.72);
-      color: var(--cyan);
-      text-decoration: none;
-      transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease;
+      color: var(--term-cyan);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      animation: action-idle 3.6s ease-in-out infinite;
     }
 
-    .action:hover {
+    .hero-actions .action-link:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+    .action-link::before {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.72rem;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+    }
+
+    .cv-link::before {
+      content: "CV";
+      color: var(--term-green);
+    }
+
+    .cert-link::before {
+      content: "ID";
+      color: var(--term-amber);
+    }
+
+    .linkedin-link::before {
+      content: "in";
+      color: var(--term-cyan);
+      font-weight: 700;
+      text-transform: none;
+    }
+
+    .action-link:hover,
+    .action-link:focus-visible {
       transform: translateY(-1px);
       border-color: rgba(255, 202, 114, 0.24);
-      color: var(--amber);
+      background: rgba(255, 202, 114, 0.08);
+      color: var(--term-amber);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 18px rgba(255, 202, 114, 0.12);
+      outline: none;
+    }
+
+    .hero-panels {
+      gap: 14px;
+    }
+
+    .mini-panel,
+    .timeline-item,
+    .stack-item,
+    .contact-item {
+      background: rgba(4, 10, 8, 0.54);
+      border: 1px solid rgba(141, 255, 159, 0.11);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .mini-panel:hover,
+    .timeline-item:hover,
+    .stack-item:hover,
+    .contact-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 202, 114, 0.2);
+      background: rgba(7, 16, 12, 0.68);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .contact-item {
+      flex: 1 1 180px;
+      min-width: 0;
+    }
+
+    .mini-panel .label,
+    .section-title span,
+    .contact-item > span {
+      color: var(--term-amber);
+      font-size: 0.76rem;
+    }
+
+    .mini-panel strong,
+    .timeline-item h3,
+    .stack-item > strong,
+    .contact-item strong,
+    .contact-item a {
+      color: var(--term-white);
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed rgba(141, 255, 159, 0.16);
+    }
+
+    .section-title h2 {
+      color: var(--term-cyan);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-shadow: 0 0 16px rgba(121, 232, 255, 0.12);
+    }
+
+    .timeline-item p,
+    .stack-item p,
+    .footer-note,
+    .portrait-meta span {
+      color: #c6d7ca;
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .timeline-item .period {
+      color: var(--term-green);
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+    }
+
+    .timeline-item h3 {
+      color: var(--term-cyan);
+    }
+
+    .mini-panel:nth-child(1) strong,
+    .stack-item:nth-child(2) > strong {
+      color: var(--term-green);
+    }
+
+    .mini-panel:nth-child(2) strong,
+    .stack-item:nth-child(1) > strong,
+    .stack-item:nth-child(5) > strong {
+      color: var(--term-cyan);
+    }
+
+    .mini-panel:nth-child(3) strong,
+    .stack-item:nth-child(3) > strong,
+    .contact-item > span {
+      color: var(--term-amber);
+    }
+
+    .stack-item:nth-child(4) > strong,
+    .eyebrow::before {
+      color: var(--term-violet);
+    }
+
+    .stack-item:nth-child(6) > strong {
+      color: var(--term-red);
+    }
+
+    .portrait {
+      min-height: 560px;
+      border-radius: 18px;
+      border: 1px solid rgba(141, 255, 159, 0.18);
+      background: #040706;
+    }
+
+    .portrait::before {
+      content: "";
+      position: absolute;
+      inset: -12% 0 auto;
+      height: 40%;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(121, 232, 255, 0) 0%,
+          rgba(121, 232, 255, 0.18) 40%,
+          rgba(141, 255, 159, 0.32) 56%,
+          rgba(121, 232, 255, 0.12) 72%,
+          rgba(121, 232, 255, 0) 100%
+        );
+      mix-blend-mode: screen;
+      z-index: 2;
+      animation: portrait-scan 1.8s ease-out both;
+      pointer-events: none;
+    }
+
+    .portrait img {
+      object-position: center top;
+      animation: portrait-reveal 1.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .portrait-card .window-body {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .portrait::after {
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(3, 8, 6, 0.2) 42%, rgba(3, 8, 6, 0.84) 100%),
+        linear-gradient(135deg, rgba(141, 255, 159, 0.09), transparent 42%);
+    }
+
+    .portrait-meta {
+      border: 1px solid rgba(141, 255, 159, 0.16);
+      background: rgba(4, 10, 8, 0.74);
+    }
+
+    .portrait-note {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(121, 232, 255, 0.14);
+      background: rgba(8, 17, 14, 0.62);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .portrait-note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--term-cyan);
+      font-size: 0.94rem;
+    }
+
+    .portrait-note span {
+      color: #c6d7ca;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .tag,
+    .pill {
+      background: rgba(141, 255, 159, 0.08);
+      border: 1px solid rgba(141, 255, 159, 0.14);
+      font-size: 0.82rem;
+    }
+
+    .tag-cloud .tag {
+      animation: tag-float 7.5s ease-in-out infinite;
+    }
+
+    .tag-cloud .tag:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+    .tag-cloud .tag:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+
+    .tag-cloud .tag:nth-child(4) {
+      animation-delay: 1.7s;
+    }
+
+    .tag-cloud .tag:nth-child(5) {
+      animation-delay: 2.2s;
+    }
+
+    .tag-cloud .tag:nth-child(6) {
+      animation-delay: 2.7s;
+    }
+
+    .tag:nth-child(3n + 1),
+    .pill:nth-child(5n + 1) {
+      color: var(--term-green);
+      border-color: rgba(141, 255, 159, 0.18);
+      background: rgba(141, 255, 159, 0.08);
+    }
+
+    .tag:nth-child(3n + 2),
+    .pill:nth-child(5n + 2) {
+      color: var(--term-cyan);
+      border-color: rgba(121, 232, 255, 0.18);
+      background: rgba(121, 232, 255, 0.08);
+    }
+
+    .tag:nth-child(3n),
+    .pill:nth-child(5n + 3) {
+      color: var(--term-amber);
+      border-color: rgba(255, 202, 114, 0.18);
       background: rgba(255, 202, 114, 0.08);
     }
 
-    .action::before {
-      content: ">";
-      color: var(--green);
+    .pill:nth-child(5n + 4) {
+      color: var(--term-violet);
+      border-color: rgba(176, 184, 255, 0.18);
+      background: rgba(176, 184, 255, 0.08);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
+    .pill:nth-child(5n) {
+      color: var(--term-red);
+      border-color: rgba(255, 141, 141, 0.16);
+      background: rgba(255, 141, 141, 0.08);
     }
 
-    .stack {
+    .footer-note {
+      margin-top: 22px;
+      background: rgba(141, 255, 159, 0.08);
+      border: 1px solid rgba(141, 255, 159, 0.14);
+    }
+
+    .chatbot-shell {
       display: grid;
       gap: 14px;
     }
 
-    .panel {
-      padding: 18px;
+    .chat-log {
+      min-height: 260px;
+      max-height: 360px;
+      overflow: auto;
+      display: grid;
+      gap: 12px;
+      padding: 16px;
       border-radius: 18px;
-      border: 1px solid rgba(141, 255, 159, 0.11);
-      background: rgba(4, 10, 8, 0.54);
+      border: 1px solid rgba(121, 232, 255, 0.12);
+      background: rgba(3, 10, 7, 0.58);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
-    .panel h2,
-    .panel h3 {
-      margin: 0 0 12px;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
+    .chat-message {
+      max-width: min(90%, 520px);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      border: 1px solid rgba(141, 255, 159, 0.12);
+      background: rgba(7, 16, 12, 0.66);
+    }
+
+    .chat-message.user {
+      margin-left: auto;
+      color: var(--term-white);
+      border-color: rgba(121, 232, 255, 0.18);
+      background: rgba(12, 26, 23, 0.78);
+    }
+
+    .chat-message.bot {
+      color: #d2e4d7;
+    }
+
+    .chat-message a {
+      color: var(--term-cyan);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .chat-result-title {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--term-cyan);
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .panel h2 { color: var(--cyan); }
-    .panel h3 { color: var(--green); }
-
-    .panel p,
-    .panel li {
-      color: #c6d7ca;
-      line-height: 1.75;
+    .chat-result-body {
+      color: #d2e4d7;
     }
 
-    .panel ul {
-      margin: 0;
-      padding-left: 18px;
+    .chat-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(141, 255, 159, 0.14);
+      background: rgba(8, 18, 13, 0.72);
+      color: var(--term-green);
+      font: inherit;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
     }
 
-    .pill {
-      padding: 10px 13px;
+    .chat-jump:hover,
+    .chat-jump:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(255, 202, 114, 0.22);
+      color: var(--term-amber);
+      background: rgba(255, 202, 114, 0.08);
+      outline: none;
+    }
+
+    .chat-jump::before {
+      content: ">";
+      color: var(--term-cyan);
+    }
+
+    .chat-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chat-chip {
+      appearance: none;
+      border: 1px solid rgba(141, 255, 159, 0.12);
+      background: rgba(8, 18, 13, 0.72);
+      color: var(--term-green);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .chat-chip:hover,
+    .chat-chip:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(255, 202, 114, 0.22);
+      color: var(--term-amber);
+      background: rgba(255, 202, 114, 0.08);
+      outline: none;
+    }
+
+    .chat-input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .chat-input,
+    .chat-send {
+      font: inherit;
       border-radius: 14px;
       border: 1px solid rgba(121, 232, 255, 0.14);
-      background: rgba(121, 232, 255, 0.08);
-      color: #e8fbff;
-      font-size: 0.9rem;
+      background: rgba(8, 18, 13, 0.72);
+      color: var(--term-white);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
-    .pill:nth-child(3n+1) {
-      color: var(--green);
+    .chat-input {
+      min-width: 0;
+      padding: 12px 14px;
+    }
+
+    .chat-input::placeholder {
+      color: #8ca69a;
+    }
+
+    .chat-send {
+      padding: 12px 16px;
+      color: var(--term-cyan);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .chat-send:hover,
+    .chat-send:focus-visible,
+    .chat-input:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(255, 202, 114, 0.22);
+      color: var(--term-amber);
+      background: rgba(255, 202, 114, 0.08);
+      outline: none;
+    }
+
+    .chat-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chat-inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(121, 232, 255, 0.14);
+      background: rgba(8, 18, 13, 0.72);
+      color: var(--term-cyan);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .chat-inline-link::before {
+      content: "CV";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      color: var(--term-green);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .chat-inline-link:hover,
+    .chat-inline-link:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(255, 202, 114, 0.22);
+      color: var(--term-amber);
+      background: rgba(255, 202, 114, 0.08);
+      outline: none;
+    }
+
+    .chat-targeted {
+      animation: chat-target-pulse 1.6s ease;
+    }
+
+    .ambient-terminals {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(141, 255, 159, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(141, 255, 159, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+    }
+
+    .ambient-window {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(141, 255, 159, 0.12);
+      background: rgba(4, 10, 8, 0.34);
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.46),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(18px);
+      transition: border-color 280ms ease, box-shadow 280ms ease, opacity 280ms ease;
+    }
+
+    .ambient-window.is-current {
+      border-color: rgba(121, 232, 255, 0.24);
+      box-shadow:
+        0 34px 110px rgba(0, 0, 0, 0.54),
+        0 0 30px rgba(121, 232, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .ambient-window::before {
+      content: "";
+      position: absolute;
+      background:
+        linear-gradient(135deg, rgba(121, 232, 255, 0.06), transparent 30%, transparent 68%, rgba(141, 255, 159, 0.05)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%);
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .ambient-window-left {
+      width: min(38vw, 520px);
+      left: -4%;
+      top: 8%;
+      opacity: 0.54;
+      transform: rotate(-6deg);
+      animation: ambient-float-left 15s ease-in-out infinite;
+    }
+
+    .ambient-window-right {
+      width: min(31vw, 420px);
+      right: -2%;
+      top: 18%;
+      opacity: 0.5;
+      transform: rotate(7deg);
+      animation: ambient-float-right 17s ease-in-out infinite;
+    }
+
+    .ambient-window-bottom {
+      width: min(44vw, 600px);
+      left: 7%;
+      bottom: 3%;
+      opacity: 0.46;
+      transform: rotate(-3deg);
+      animation: ambient-float-bottom 19s ease-in-out infinite;
+    }
+
+    .ambient-window-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(141, 255, 159, 0.08);
+      background: linear-gradient(180deg, rgba(28, 35, 34, 0.96), rgba(13, 18, 18, 0.88));
+    }
+
+    .ambient-dots {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .ambient-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+    }
+
+    .ambient-dots span:nth-child(1) {
+      background: #ff6d6d;
+    }
+
+    .ambient-dots span:nth-child(2) {
+      background: #ffca72;
+    }
+
+    .ambient-dots span:nth-child(3) {
+      background: #7cf0ff;
+    }
+
+    .ambient-window-title {
+      color: rgba(244, 255, 247, 0.8);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ambient-window-body {
+      position: relative;
+      padding: 16px 18px 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ambient-window-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.024) 0,
+          rgba(255, 255, 255, 0.024) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .ambient-window-body > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ambient-command-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+    }
+
+    .ambient-prompt {
+      color: var(--term-green);
+      text-shadow: 0 0 12px rgba(141, 255, 159, 0.24);
+    }
+
+    .ambient-cmd {
+      color: var(--term-amber);
+    }
+
+    .ambient-caret {
+      width: 8px;
+      height: 1em;
+      background: var(--term-green);
+      box-shadow: 0 0 12px rgba(141, 255, 159, 0.36);
+      animation: ambient-caret-blink 1s steps(1) infinite;
+    }
+
+    .ambient-banner {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(121, 232, 255, 0.14);
+      background: rgba(121, 232, 255, 0.08);
+      color: var(--term-cyan);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .ambient-banner.is-green {
+      color: var(--term-green);
       border-color: rgba(141, 255, 159, 0.16);
       background: rgba(141, 255, 159, 0.08);
     }
 
-    .pill:nth-child(3n+2) {
-      color: var(--cyan);
-    }
-
-    .pill:nth-child(3n) {
-      color: var(--amber);
+    .ambient-banner.is-amber {
+      color: var(--term-amber);
       border-color: rgba(255, 202, 114, 0.16);
       background: rgba(255, 202, 114, 0.08);
     }
 
-    .availability-box {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 202, 114, 0.14);
-      background: rgba(255, 202, 114, 0.08);
-      color: #fff0ce;
-      line-height: 1.75;
+    .ambient-output {
+      display: grid;
+      gap: 7px;
+      color: rgba(226, 241, 229, 0.82);
+      font-size: 0.73rem;
+      line-height: 1.55;
     }
 
-    .footer-note {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(141, 255, 159, 0.14);
-      background: rgba(141, 255, 159, 0.08);
-      color: #daf5df;
-      line-height: 1.75;
+    .boot-line {
+      opacity: 0;
+      transform: translateY(6px);
+      filter: blur(2px);
+      animation: ambient-boot-line 9s linear infinite;
     }
 
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-      .window-title { text-align: left; }
-      .window-bar { flex-wrap: wrap; }
-      .window-body { padding: 20px 18px 22px; }
+    .delay-1 {
+      animation-delay: 0.15s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.7s;
+    }
+
+    .delay-3 {
+      animation-delay: 1.25s;
+    }
+
+    .delay-4 {
+      animation-delay: 1.8s;
+    }
+
+    .ambient-command-stack {
+      display: grid;
+      gap: 9px;
+    }
+
+    .ambient-command-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.74rem;
+    }
+
+    .ambient-status {
+      color: rgba(226, 241, 229, 0.74);
+    }
+
+    .sim-line {
+      opacity: 0;
+      transform: translateY(8px);
+      filter: blur(7px);
+      transition: opacity 320ms ease, transform 320ms ease, filter 320ms ease, color 320ms ease;
+    }
+
+    .sim-line.is-visible {
+      opacity: 0.96;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .sim-line.is-accent {
+      color: var(--term-cyan);
+    }
+
+    .sim-line.is-success {
+      color: var(--term-green);
+    }
+
+    .sim-line.is-warm {
+      color: var(--term-amber);
+    }
+
+    .ambient-progress {
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(121, 232, 255, 0.08);
+      border: 1px solid rgba(121, 232, 255, 0.1);
+    }
+
+    .ambient-progress span {
+      display: block;
+      height: 100%;
+      width: calc(var(--sim-progress, 0) * 100%);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--term-cyan), var(--term-green));
+      box-shadow: 0 0 16px rgba(121, 232, 255, 0.22);
+      transition: width 220ms ease;
+    }
+
+    .matrix-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14px, 1fr));
+      gap: 10px;
+      align-items: start;
+      padding: 0 6px;
+      background: rgba(0, 0, 0, 0.88);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .matrix-transition.is-active {
+      visibility: visible;
+      animation: matrix-overlay-fade 980ms ease both;
+    }
+
+    .matrix-column {
+      color: var(--term-green);
+      font-family: "Fira Code", "IBM Plex Mono", monospace;
+      font-size: 12px;
+      line-height: 0.88;
+      text-shadow: 0 0 12px rgba(141, 255, 159, 0.48);
+      white-space: nowrap;
+      transform: translateY(-115%);
+      animation: matrix-column-fall 2.2s linear infinite;
+      user-select: none;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(1220px, calc(100% - 16px));
+        padding-top: 16px;
+      }
+
+      .window-bar {
+        flex-wrap: wrap;
+      }
+
+      .window-title {
+        text-align: left;
+      }
+
+      .window-body {
+        padding: 20px 18px 22px;
+      }
+
+      .ambient-grid {
+        background-size: 54px 54px;
+      }
+
+      .ambient-window-left {
+        width: 74vw;
+        left: -22%;
+        top: 10%;
+      }
+
+      .ambient-window-right {
+        width: 68vw;
+        right: -20%;
+        top: 30%;
+      }
+
+      .ambient-window-bottom {
+        width: 80vw;
+        left: 10%;
+        bottom: 4%;
+      }
+
+      .ambient-window-body {
+        padding: 14px 16px 16px;
+      }
+
+      .ambient-output,
+      .ambient-command-row {
+        font-size: 0.68rem;
+      }
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    @keyframes ambient-float-left {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(-6deg);
+      }
+
+      50% {
+        transform: translate3d(18px, -14px, 0) rotate(-4deg);
+      }
+    }
+
+    @keyframes ambient-float-right {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(7deg);
+      }
+
+      50% {
+        transform: translate3d(-16px, 12px, 0) rotate(4deg);
+      }
+    }
+
+    @keyframes ambient-float-bottom {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translate3d(12px, -10px, 0) rotate(-1deg);
+      }
+    }
+
+    @keyframes ambient-caret-blink {
+      0%,
+      49% {
+        opacity: 1;
+      }
+
+      50%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes ambient-boot-line {
+      0%,
+      8% {
+        opacity: 0;
+        transform: translateY(6px);
+        filter: blur(2px);
+      }
+
+      12%,
+      82% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes panel-enter {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.988);
+        filter: blur(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes signal-pulse {
+      0%,
+      100% {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 0 0 rgba(141, 255, 159, 0);
+      }
+
+      50% {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 0 22px rgba(141, 255, 159, 0.14);
+      }
+    }
+
+    @keyframes terminal-title-glow {
+      0%,
+      100% {
+        text-shadow: 0 0 18px rgba(121, 232, 255, 0.12);
+        opacity: 0.9;
+      }
+
+      50% {
+        text-shadow: 0 0 26px rgba(121, 232, 255, 0.22);
+        opacity: 1;
+      }
+    }
+
+    @keyframes action-idle {
+      0%,
+      100% {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 0 0 rgba(121, 232, 255, 0);
+      }
+
+      50% {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 0 16px rgba(121, 232, 255, 0.12);
+      }
+    }
+
+    @keyframes tag-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes terminal-noise {
+      0% {
+        background-position: 0 0, 0 0;
+      }
+
+      50% {
+        background-position: 8px 0, 0 2px;
+      }
+
+      100% {
+        background-position: 0 0, 0 0;
+      }
+    }
+
+    @keyframes chat-target-pulse {
+      0%,
+      100% {
+        border-color: rgba(141, 255, 159, 0.16);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+      }
+
+      45% {
+        border-color: rgba(121, 232, 255, 0.32);
+        box-shadow:
+          0 28px 90px rgba(0, 0, 0, 0.48),
+          0 0 30px rgba(121, 232, 255, 0.12);
+      }
+    }
+
+    @keyframes matrix-overlay-fade {
+      0% {
+        opacity: 0;
+      }
+
+      8% {
+        opacity: 1;
+      }
+
+      82% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes matrix-column-fall {
+      from {
+        transform: translateY(-115%);
+      }
+
+      to {
+        transform: translateY(120%);
+      }
+    }
+
+    @keyframes portrait-reveal {
+      0% {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: saturate(0.2) blur(14px) brightness(0.45);
+      }
+
+      55% {
+        opacity: 0.88;
+        filter: saturate(0.7) blur(4px) brightness(0.72);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: saturate(0.96) contrast(1.06);
+      }
+    }
+
+    @keyframes portrait-scan {
+      0% {
+        transform: translateY(-120%);
+        opacity: 0;
+      }
+
+      16% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(260%);
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        min-height: 540px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(1220px, calc(100% - 16px));
+        padding-top: 16px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero,
+      .portrait-card,
+      .section {
+        padding: 0;
+        display: block;
+      }
+
+      .window-bar {
+        flex-wrap: wrap;
+      }
+
+      .window-title {
+        text-align: left;
+      }
+
+      .window-body {
+        padding: 20px 18px 22px;
+      }
+
+      .hero-panels {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        min-height: 380px;
+      }
+
+      .chat-input-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #09111b;
+      }
+
+      body::before,
+      body::after {
+        display: none;
+      }
+
+      .card {
+        box-shadow: none;
+        border-color: rgba(9, 17, 27, 0.1);
+        background: #ffffff;
+      }
+
+      .topbar,
+      .availability,
+      .eyebrow {
+        color: #17324a;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <div class="topbar">
-      <div class="chip brand">security profile / candidate pipeline</div>
-      <div class="chip availability">Recherche de stage SOC junior / Pentest</div>
+  <div class="ambient-terminals" aria-hidden="true">
+    <div class="ambient-grid"></div>
+
+    <div class="ambient-window ambient-window-left is-current" data-sim-panel="recon">
+      <div class="ambient-window-bar">
+        <div class="ambient-dots"><span></span><span></span><span></span></div>
+        <div class="ambient-window-title">lab shell :: metasploitable-lab.sim</div>
+      </div>
+      <div class="ambient-window-body">
+        <div class="ambient-command-line">
+          <span class="ambient-prompt">sim@lab:~$</span>
+          <span class="ambient-cmd">labscan --full-spectrum --fingerprint --safe-demo metasploitable-lab</span>
+          <span class="ambient-caret"></span>
+        </div>
+        <div class="ambient-banner is-green">Recon / Simulation Only</div>
+        <div class="ambient-output">
+          <span class="sim-line is-success" data-stage="0">[sim] target loaded: metasploitable training host</span>
+          <span class="sim-line" data-stage="1">[sim] services observed: ftp / smb / http / postgres / shell</span>
+          <span class="sim-line" data-stage="2">[pcap] wireshark capture: dns, smb, http, tcp handshake story</span>
+          <span class="sim-line" data-stage="3">[sim] lecture defensive: reseau, protocoles, exposition</span>
+          <span class="sim-line is-accent" data-stage="4">[profile] socle technique: Windows / Linux / bases reseau</span>
+        </div>
+        <div class="ambient-progress"><span></span></div>
+      </div>
     </div>
 
-    <section class="card">
-      <div class="window-bar">
-        <div class="window-controls"><span></span><span></span><span></span></div>
-        <div class="window-title">terminator :: session/profile.init</div>
+    <div class="ambient-window ambient-window-right" data-sim-panel="framework">
+      <div class="ambient-window-bar">
+        <div class="ambient-dots"><span></span><span></span><span></span></div>
+        <div class="ambient-window-title">framework :: candidate-profile.demo</div>
       </div>
-      <div class="window-body">
-        <div class="command">
-          <span class="prompt">jimmy@cybercv:~$</span>
-          <span class="cmd">./bootstrap_candidate_profile.sh</span>
-          <span class="comment"># chargement du profil</span>
+      <div class="ambient-window-body">
+        <div class="ambient-command-line">
+          <span class="ambient-prompt">sim@lab:~$</span>
+          <span class="ambient-cmd">candidate-framework --mode safe-narrative</span>
+          <span class="ambient-caret"></span>
         </div>
-        <h1>Jimmy Puma</h1>
-        <p class="subtitle">
-          Stagiaire cybersécurité en reconversion, actuellement en formation IFAPME, à la recherche d'un stage
-          <strong>SOC junior</strong> ou <strong>pentest</strong>. Je développe une base solide en réseau, Windows,
-          Linux, analyse de logs, investigation initiale, OSINT et documentation technique, avec une progression
-          concrète à travers des labs BTL1 / BTLO, PJPT et Metasploitable 2.
-        </p>
-        <div class="hero-actions">
-          <a class="action" href="https://www.linkedin.com/in/jimmy-puma-b11652378/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="action" href="https://www.credly.com/users/jimmy-puma" target="_blank" rel="noreferrer">Certificats / Diplômes</a>
+        <div class="ambient-banner">Profile Discovery</div>
+        <div class="ambient-output">
+          <span class="sim-line" data-stage="1">[search] jimmy puma / cyber internship profile</span>
+          <span class="sim-line is-accent" data-stage="2">[result] objectif: stage SOC junior ou pentest</span>
+          <span class="sim-line is-warm" data-stage="3">[track] BTL1 en preparation</span>
+          <span class="sim-line is-warm" data-stage="4">[track] PJPT apres validation du socle defensif</span>
+          <span class="sim-line is-accent" data-stage="5">[splunk] fictive dashboard: auth_summary / detections / event_story</span>
+          <span class="sim-line" data-stage="6">[sim] privilege layer: user -> analyst -> root-sim</span>
         </div>
-        <div class="footer-note">
-          <strong>Objectif actuel :</strong> intégrer une structure où je pourrai apprendre vite, mettre en pratique ma formation cybersécurité,
-          et évoluer sur des sujets SOC junior ou pentest avec une vraie implication terrain.
-        </div>
+        <div class="ambient-progress"><span></span></div>
       </div>
+    </div>
+
+    <div class="ambient-window ambient-window-bottom" data-sim-panel="profile">
+      <div class="ambient-window-bar">
+        <div class="ambient-dots"><span></span><span></span><span></span></div>
+        <div class="ambient-window-title">portfolio :: identity.reveal.scroll</div>
+      </div>
+      <div class="ambient-window-body">
+        <div class="ambient-command-stack">
+          <div class="ambient-command-row">
+            <span class="ambient-prompt">sim@lab:~$</span>
+            <span class="ambient-cmd">profile.read --field experience</span>
+          </div>
+          <div class="ambient-command-row">
+            <span class="ambient-prompt">sim@lab:~$</span>
+            <span class="ambient-cmd">profile.read --field labs</span>
+          </div>
+          <div class="ambient-command-row">
+            <span class="ambient-prompt">sim@lab:~$</span>
+            <span class="ambient-cmd">profile.read --field tools</span>
+          </div>
+          <div class="ambient-command-row">
+            <span class="ambient-prompt">sim@lab:~$</span>
+            <span class="ambient-cmd">pcap.inspect --source training_capture.pcapng</span>
+          </div>
+          <div class="ambient-command-row">
+            <span class="ambient-prompt">sim@lab:~$</span>
+            <span class="ambient-cmd">splunk.view --index fictional_lab --story candidate_timeline</span>
+          </div>
+        </div>
+        <div class="ambient-banner is-amber">Scroll Narrative</div>
+        <div class="ambient-output">
+          <span class="sim-line" data-stage="2">[data] Audi Brussels 2019-2025 / discipline industrielle</span>
+          <span class="sim-line" data-stage="3">[pcap] flux fictif: dns -> smb -> http, lecture defensive uniquement</span>
+          <span class="sim-line" data-stage="4">[data] labs BTL1 / BTLO, Metasploitable 2, Wireshark, OSINT</span>
+          <span class="sim-line" data-stage="5">[data] outils pratiques: Splunk, Wireshark, Autopsy, DeepBlueCLI, Kali</span>
+          <span class="sim-line is-accent" data-stage="6">[data] focus: detection, investigation, documentation, progression constante</span>
+          <span class="sim-line is-success" data-stage="7">[final] Jimmy Puma / profil motive / disponible pour opportunites</span>
+        </div>
+        <div class="ambient-progress"><span></span></div>
+      </div>
+    </div>
+  </div>
+  <main class="page">
+    <div class="topbar">
+      <div class="brand">security profile / candidate pipeline</div>
+      <div class="topbar-actions">
+        <div class="availability">Recherche de stage SOC junior / Pentest</div>
+        <button class="lang-toggle" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+    <section class="hero-grid">
+      <article class="card hero" id="section-profile">
+        <div class="window-bar">
+          <div class="window-controls"><span></span><span></span><span></span></div>
+          <div class="window-title">terminator :: session/profile.init</div>
+        </div>
+        <div class="window-body">
+          <div class="terminal-command">
+            <span class="prompt">jimmy@cybercv:~$</span>
+            <span class="command-text">./bootstrap_candidate_profile.sh</span>
+            <span class="command-comment"># chargement du profil</span>
+          </div>
+          <div class="eyebrow">Stagiaire cybers&eacute;curit&eacute; en reconversion</div>
+          <h1>Jimmy Puma</h1>
+          <div class="headline">
+            <span>Stagiaire</span>
+            <span>IFAPME - Conseiller cybers&eacute;curit&eacute;</span>
+            <span>Orientation SOC junior / Pentest</span>
+          </div>
+          <p class="intro">
+            En reconversion vers la cybers&eacute;curit&eacute;, je recherche un stage au sein d'un
+            <strong>SOC junior</strong> ou d'une &eacute;quipe <strong>pentest</strong> afin de consolider mes acquis
+            techniques, approfondir mes r&eacute;flexes d'analyse et contribuer &agrave; des missions concr&egrave;tes
+            autour de la d&eacute;tection, de l'investigation et de la s&eacute;curit&eacute; offensive. Mon parcours
+            traduit une progression constante, une forte motivation et une vraie volont&eacute; de monter en comp&eacute;tences.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="action-link cv-link"
+              href="./assets/jimmy-puma-cv-cyber.pdf"
+              download="Jimmy_Puma_CV_Cyber.pdf"
+            >
+              CV Papier
+            </a>
+            <a
+              class="action-link cert-link"
+              href="https://www.credly.com/users/jimmy-puma"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Certificats / Dipl&ocirc;mes
+            </a>
+            <a
+              class="action-link linkedin-link"
+              href="https://www.linkedin.com/in/jimmy-puma-b11652378/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="hero-panels">
+            <div class="mini-panel">
+              <span class="label">Certifications en cours</span>
+              <strong>BTL1 - en pr&eacute;paration</strong>
+              <strong>PJPT - pr&eacute;vu apr&egrave;s validation du socle d&eacute;fensif</strong>
+            </div>
+            <div class="mini-panel">
+              <span class="label">Socle technique</span>
+              <strong>Bases r&eacute;seau</strong>
+              <strong>Windows / Linux</strong>
+            </div>
+            <div class="mini-panel">
+              <span class="label">Axes d'int&eacute;r&ecirc;t</span>
+              <strong>OSINT</strong>
+              <strong>Approche purple team</strong>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card portrait-card">
+        <div class="window-bar">
+          <div class="window-controls"><span></span><span></span><span></span></div>
+          <div class="window-title">terminator :: display assets/jimmy-puma-hacker.png</div>
+        </div>
+        <div class="window-body">
+          <div class="terminal-command">
+            <span class="prompt">jimmy@cybercv:~$</span>
+            <span class="command-text">display ./assets/jimmy-puma-hacker.png</span>
+            <span class="command-comment"># image du profil</span>
+          </div>
+          <div class="portrait">
+            <img src="./assets/jimmy-puma-hacker.png" alt="Portrait de Jimmy Puma dans un univers cyberpunk">
+          </div>
+          <div class="portrait-note">
+            <strong>Profil engag&eacute; et motiv&eacute;</strong>
+            <span>Rigueur, concentration et assiduit&eacute; au service d'une reconversion orient&eacute;e cybers&eacute;curit&eacute;.</span>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">SOC</span>
+            <span class="tag">Pentest</span>
+            <span class="tag">OSINT</span>
+            <span class="tag">R&eacute;seau</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Linux</span>
+          </div>
+        </div>
+      </aside>
     </section>
 
-    <section class="grid">
-      <div class="stack">
-        <article class="card">
+    <section class="content-grid">
+      <div class="column">
+        <article class="card section" id="section-experience">
           <div class="window-bar">
             <div class="window-controls"><span></span><span></span><span></span></div>
             <div class="window-title">terminator :: /var/log/experience.log</div>
           </div>
-          <div class="window-body stack">
-            <div class="panel">
-              <h2>Expérience</h2>
-              <p><strong>2019 - 2025 :</strong> Ouvrier de production chez Audi Brussels, dans un environnement exigeant demandant rigueur, concentration, constance et assiduité.</p>
+          <div class="window-body">
+            <div class="terminal-command">
+              <span class="prompt">jimmy@cybercv:~$</span>
+              <span class="command-text">cat experience.log</span>
             </div>
-            <div class="panel">
+            <div class="section-title">
+              <h2>Exp&eacute;rience</h2>
+              <span>Parcours professionnel</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="period">2019 - 2025</span>
+                <h3>Ouvrier de production - Audi Brussels</h3>
+                <p>
+                  Exp&eacute;rience longue en environnement industriel exigeant, avec une culture forte de la rigueur,
+                  du rythme, de la concentration et de la constance. Cette base alimente aujourd'hui ma transition
+                  vers un domaine technique o&ugrave; discipline et fiabilit&eacute; sont essentielles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card section" id="section-education">
+          <div class="window-bar">
+            <div class="window-controls"><span></span><span></span><span></span></div>
+            <div class="window-title">terminator :: /home/jimmy/education.md</div>
+          </div>
+          <div class="window-body">
+            <div class="terminal-command">
+              <span class="prompt">jimmy@cybercv:~$</span>
+              <span class="command-text">cat education.md</span>
+            </div>
+            <div class="section-title">
               <h2>Formation</h2>
-              <ul>
-                <li><strong>2025 - en cours :</strong> Formation en conseiller cybersécurité - IFAPME</li>
-                <li><strong>2016 - 2019 :</strong> Web design - Condorcet Saint-Ghislain (bachelier non concrétisé)</li>
-                <li><strong>2014 :</strong> CESS - option langues étrangères</li>
-              </ul>
+              <span>Progression acad&eacute;mique</span>
             </div>
-            <div class="panel">
-              <h2>Disponibilité</h2>
-              <div class="availability-box">
-                Disponibilité immédiate en cas d'offre d'emploi. Le stage pour l'année 2026/2027 s'effectuera à partir de décembre.
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="period">2025 - en cours</span>
+                <h3>Formation en conseiller cybers&eacute;curit&eacute; - IFAPME</h3>
+                <p>
+                  Mont&eacute;e en comp&eacute;tences orient&eacute;e cybers&eacute;curit&eacute;, avec un int&eacute;r&ecirc;t particulier
+                  pour la d&eacute;tection, l'analyse de menaces, l'OSINT et la s&eacute;curit&eacute; offensive.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <span class="period">2016 - 2019</span>
+                <h3>Web design - Condorcet Saint-Ghislain</h3>
+                <p>Bachelier non concr&eacute;tis&eacute;, avec une exposition aux logiques web et &agrave; la culture num&eacute;rique.</p>
+              </div>
+              <div class="timeline-item">
+                <span class="period">2014</span>
+                <h3>CESS - option langues &eacute;trang&egrave;res</h3>
+                <p>Base scolaire orient&eacute;e communication et ouverture linguistique.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card section" id="section-assistant">
+          <div class="window-bar">
+            <div class="window-controls"><span></span><span></span><span></span></div>
+            <div class="window-title">terminator :: trouve le CV papier</div>
+          </div>
+          <div class="window-body">
+            <div class="terminal-command">
+              <span class="prompt">jimmy@cybercv:~$</span>
+              <span class="command-text">./local_cv_assistant --safe-mode</span>
+            </div>
+            <div class="section-title">
+              <h2>Assistant local</h2>
+              <span>Trouve le CV papier</span>
+            </div>
+            <div class="chatbot-shell">
+              <div class="chat-log" aria-live="polite"></div>
+              <div class="chat-shortcuts">
+                <button class="chat-chip" type="button" data-intent="cv">Ou est le CV papier ?</button>
+                <button class="chat-chip" type="button" data-intent="linkedin">Montre LinkedIn</button>
+                <button class="chat-chip" type="button" data-intent="certs">Voir certificats</button>
+                <button class="chat-chip" type="button" data-intent="stage">Quel stage recherches-tu ?</button>
+                <button class="chat-chip" type="button" data-intent="availability">Disponibilité</button>
+              </div>
+              <div class="chat-input-row">
+                <input class="chat-input" type="text" autocomplete="off" placeholder="Pose une question..." />
+                <button class="chat-send" type="button">Envoyer</button>
               </div>
             </div>
           </div>
         </article>
       </div>
 
-      <div class="stack">
-        <article class="card">
+      <div class="column">
+        <article class="card section" id="section-skills">
           <div class="window-bar">
             <div class="window-controls"><span></span><span></span><span></span></div>
             <div class="window-title">terminator :: /opt/skills/inventory</div>
           </div>
-          <div class="window-body stack">
-            <div class="panel">
-              <h2>Certifications en cours</h2>
-              <div class="pill-list">
-                <span class="pill">BTL1 - en préparation</span>
-                <span class="pill">PJPT - après validation du socle défensif</span>
-              </div>
+          <div class="window-body">
+            <div class="terminal-command">
+              <span class="prompt">jimmy@cybercv:~$</span>
+              <span class="command-text">ls -R fundamentals/</span>
             </div>
-            <div class="panel">
-              <h2>Connaissances techniques</h2>
-              <div class="pill-list">
-                <span class="pill">Bases réseau</span>
-                <span class="pill">Windows</span>
-                <span class="pill">Linux</span>
-                <span class="pill">Analyse de logs</span>
-                <span class="pill">Triage d'alertes N1</span>
-                <span class="pill">Identification d'IOC</span>
-                <span class="pill">Analyse de trafic</span>
-                <span class="pill">Reconnaissance réseau</span>
-                <span class="pill">Énumération</span>
-                <span class="pill">OSINT</span>
-                <span class="pill">Rédaction technique</span>
-              </div>
+            <div class="section-title">
+              <h2>Comp&eacute;tences</h2>
+              <span>Technique et posture</span>
             </div>
-            <div class="panel">
-              <h2>Labs / projets cybersécurité</h2>
-              <ul>
-                <li><strong>Labs BTL1 + BTLO :</strong> analyse de logs Windows, SOC lab, corrélation d'événements, IOC, triage initial.</li>
-                <li><strong>Metasploitable 2 :</strong> reconnaissance, énumération de services, identification de vulnérabilités, exploitation encadrée et documentation.</li>
-                <li><strong>PJPT labs :</strong> Wireshark, lecture de protocoles, détection d'échanges anormaux, artefacts réseau.</li>
-                <li><strong>OSINT ciblé :</strong> recherche d'informations publiques, surface d'exposition, collecte structurée.</li>
-              </ul>
+          <div class="stack">
+            <div class="stack-item">
+              <strong>Connaissances techniques</strong>
+              <p>
+                Bases r&eacute;seau, notions des protocoles et services courants, fondamentaux des syst&egrave;mes
+                <strong>Windows</strong> et <strong>Linux</strong>, avec une app&eacute;tence pour les environnements
+                de surveillance, d'investigation et de test de s&eacute;curit&eacute;.
+              </p>
             </div>
-            <div class="panel">
-              <h2>Outils pratiqués</h2>
-              <div class="pill-list">
+            <div class="stack-item">
+              <strong>Projets / Labs cybers&eacute;curit&eacute;</strong>
+              <p>
+                <strong>Labs BTL1 + BTLO :</strong> analyse de logs Windows / SOC lab, investigation d'activit&eacute;s
+                suspectes &agrave; partir de journaux, identification d'IOC, corr&eacute;lation d'&eacute;v&eacute;nements
+                et triage initial.
+                <br><br>
+                <strong>Lab Metasploitable 2 :</strong> reconnaissance, &eacute;num&eacute;ration de services,
+                identification de vuln&eacute;rabilit&eacute;s, exploitation encadr&eacute;e en environnement de lab
+                et documentation technique.
+                <br><br>
+                <strong>Labs dans le cadre de la PJPT :</strong> analyse r&eacute;seau avec Wireshark, inspection
+                de trafic, d&eacute;tection d'&eacute;changes anormaux, lecture de protocoles et identification
+                d'artefacts r&eacute;seau.
+                <br><br>
+                <strong>OSINT cibl&eacute; :</strong> recherche d'informations publiques, cartographie de surface
+                d'exposition et collecte structur&eacute;e.
+              </p>
+            </div>
+            <div class="stack-item">
+              <strong>Outils ma&icirc;tris&eacute;s / Outils pratiqu&eacute;s</strong>
+              <div class="pill-list" style="margin-top: 12px;">
                 <span class="pill">Splunk</span>
                 <span class="pill">Wireshark</span>
                 <span class="pill">Autopsy</span>
@@ -411,39 +2448,1008 @@
                 <span class="pill">VirusTotal</span>
               </div>
             </div>
-            <div class="panel">
-              <h2>Profil complémentaire</h2>
+            <div class="stack-item">
+              <strong>Comp&eacute;tences op&eacute;rationnelles</strong>
               <div class="pill-list">
-                <span class="pill">Concentré</span>
-                <span class="pill">Motivé</span>
-                <span class="pill">Assidu</span>
-                <span class="pill">Français</span>
-                <span class="pill">Anglais</span>
-                <span class="pill">Italien</span>
-                <span class="pill">Permis B</span>
-                <span class="pill">Informatique générale</span>
-                <span class="pill">Apprentissage purple</span>
+                <span class="pill">Analyse de logs</span>
+                <span class="pill">&Eacute;v&eacute;nements de s&eacute;curit&eacute;</span>
+                <span class="pill">Triage d'alertes N1</span>
+                <span class="pill">Identification d'IOC</span>
+                <span class="pill">Reconnaissance r&eacute;seau</span>
+                <span class="pill">&Eacute;num&eacute;ration</span>
+                <span class="pill">Analyse de trafic</span>
+                <span class="pill">R&eacute;daction technique</span>
+                <span class="pill">Recherche de vuln&eacute;rabilit&eacute;s</span>
+                <span class="pill">Investigation Windows / Linux</span>
               </div>
+            </div>
+            <div class="stack-item">
+              <strong>R&eacute;alisations</strong>
+              <p>
+                R&eacute;alisation de labs de d&eacute;tection et d'investigation sur journaux Windows.
+                <br><br>
+                Exploitation encadr&eacute;e de vuln&eacute;rabilit&eacute;s connues en environnement de test.
+                <br><br>
+                R&eacute;daction de rapports techniques structur&eacute;s apr&egrave;s exercices pratiques.
+                <br><br>
+                Utilisation d'outils SOC et forensic dans le cadre de la formation.
+              </p>
+            </div>
+            <div class="stack-item">
+              <strong>Qualit&eacute;s personnelles</strong>
+              <div class="pill-list">
+                <span class="pill">Concentr&eacute;</span>
+                <span class="pill">Motiv&eacute;</span>
+                <span class="pill">Assidu</span>
+              </div>
+            </div>
+            <div class="stack-item">
+              <strong>Langues</strong>
+                <div class="pill-list">
+                  <span class="pill">Fran&ccedil;ais</span>
+                  <span class="pill">Anglais</span>
+                  <span class="pill">Italien</span>
+                </div>
+              </div>
+              <div class="stack-item">
+                <strong>Permis</strong>
+                <div class="pill-list">
+                  <span class="pill">Permis B</span>
+                </div>
+              </div>
+              <div class="stack-item">
+                <strong>Centres d'int&eacute;r&ecirc;t</strong>
+                <div class="pill-list">
+                  <span class="pill">OSINT</span>
+                  <span class="pill">Informatique g&eacute;n&eacute;rale</span>
+                  <span class="pill">Apprentissage purple</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card section" id="section-contact">
+          <div class="window-bar">
+            <div class="window-controls"><span></span><span></span><span></span></div>
+            <div class="window-title">terminator :: /etc/contact.sec</div>
+          </div>
+          <div class="window-body">
+            <div class="terminal-command">
+              <span class="prompt">jimmy@cybercv:~$</span>
+              <span class="command-text">cat /etc/contact.sec</span>
+            </div>
+            <div class="section-title">
+              <h2>Contact</h2>
+              <span>Disponible pour opportunit&eacute;s</span>
+            </div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span>Adresse</span>
+                <a
+                  class="private-link"
+                  href="https://www.google.com/maps/search/?api=1&amp;query=Rue%20Rieu%20Du%20Coeur%208%2F4%2C%207390%20Quaregnon"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Afficher l'adresse"
+                >
+                  <span class="private-mask">Rue Rieu Du Coeur 8/4<br>7390 Quaregnon</span>
+                </a>
+              </div>
+              <div class="contact-item">
+                <span>T&eacute;l&eacute;phone</span>
+                <a class="phone-link" href="tel:+32479321127" aria-label="Afficher ou appeler le num&eacute;ro de t&eacute;l&eacute;phone">
+                  <span class="phone-mask">0479/32.11.27</span>
+                </a>
+              </div>
+              <div class="contact-item">
+                <span>Email</span>
+                <a class="private-link" href="mailto:Cieco010195@hotmail.com" aria-label="Afficher ou envoyer un email">
+                  <span class="private-mask">Cieco010195@hotmail.com</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-note">
+              <strong>Objectif actuel :</strong> int&eacute;grer une structure o&ugrave; je pourrai apprendre vite,
+              mettre en pratique ma formation cybers&eacute;curit&eacute;, et &eacute;voluer sur des sujets
+              <strong>SOC junior</strong> ou <strong>pentest</strong> avec une vraie implication terrain.
             </div>
           </div>
         </article>
       </div>
     </section>
-
-    <section class="card">
-      <div class="window-bar">
-        <div class="window-controls"><span></span><span></span><span></span></div>
-        <div class="window-title">terminator :: /etc/contact.sec</div>
-      </div>
-      <div class="window-body stack">
-        <div class="panel">
-          <h2>Contact</h2>
-          <p><strong>Adresse :</strong> Rue Rieu Du Coeur 8/4, 7390 Quaregnon</p>
-          <p><strong>Téléphone :</strong> <a href="tel:+32479321127">0479/32.11.27</a></p>
-          <p><strong>Email :</strong> <a href="mailto:Cieco010195@hotmail.com">Cieco010195@hotmail.com</a></p>
-        </div>
-      </div>
-    </section>
   </main>
+  <script>
+    (() => {
+      const toggle = document.querySelector(".lang-toggle");
+      if (!toggle) {
+        return;
+      }
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      const nodes = {
+        availability: document.querySelector(".availability"),
+        commandComments: document.querySelectorAll(".command-comment"),
+        eyebrow: document.querySelector(".eyebrow"),
+        headline: document.querySelectorAll(".headline span"),
+        intro: document.querySelector(".intro"),
+        miniLabels: document.querySelectorAll(".mini-panel .label"),
+        miniValues: document.querySelectorAll(".mini-panel strong"),
+        cvLink: document.querySelector(".cv-link"),
+        certLink: document.querySelector(".cert-link"),
+        linkedinLink: document.querySelector(".linkedin-link"),
+        portraitNoteTitle: document.querySelector(".portrait-note strong"),
+        portraitNoteText: document.querySelector(".portrait-note span"),
+        tags: document.querySelectorAll(".tag"),
+        sectionTitles: document.querySelectorAll(".section-title h2"),
+        sectionSubtitles: document.querySelectorAll(".section-title span"),
+        timelineTitles: document.querySelectorAll(".timeline-item h3"),
+        timelineBodies: document.querySelectorAll(".timeline-item p"),
+        stackTitles: document.querySelectorAll(".stack-item > strong"),
+        stackBodies: document.querySelectorAll(".stack-item p"),
+        pills: document.querySelectorAll(".stack .pill"),
+        contactLabels: document.querySelectorAll(".contact-item > span"),
+        footer: document.querySelector(".footer-note"),
+        chatLog: document.querySelector(".chat-log"),
+        chatInput: document.querySelector(".chat-input"),
+        chatSend: document.querySelector(".chat-send"),
+        chatChips: document.querySelectorAll(".chat-chip")
+      };
+
+      const setTexts = (nodeList, values) => {
+        values.forEach((value, index) => {
+          if (nodeList[index]) {
+            nodeList[index].textContent = value;
+          }
+        });
+      };
+
+      const setHtml = (nodeList, values) => {
+        values.forEach((value, index) => {
+          if (nodeList[index]) {
+            nodeList[index].innerHTML = value;
+          }
+        });
+      };
+
+      const decodeEntities = (value) => {
+        const textarea = document.createElement("textarea");
+        textarea.innerHTML = value;
+        return textarea.value;
+      };
+
+      const matrixOverlay = document.createElement("div");
+      matrixOverlay.className = "matrix-transition";
+      document.body.appendChild(matrixOverlay);
+
+      const matrixGlyphs = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<>{}[]";
+
+      const buildMatrixColumns = () => {
+        const columnCount = Math.max(18, Math.floor(window.innerWidth / 22));
+        matrixOverlay.innerHTML = "";
+
+        for (let index = 0; index < columnCount; index += 1) {
+          const column = document.createElement("div");
+          const length = 24 + Math.floor(Math.random() * 34);
+          const stream = Array.from({ length }, () => {
+            return matrixGlyphs[Math.floor(Math.random() * matrixGlyphs.length)];
+          }).join("<br>");
+
+          column.className = "matrix-column";
+          column.style.opacity = `${0.34 + Math.random() * 0.56}`;
+          column.style.animationDuration = `${1.6 + Math.random() * 1.8}s`;
+          column.style.animationDelay = `${Math.random() * 0.4}s`;
+          column.innerHTML = stream;
+          matrixOverlay.appendChild(column);
+        }
+      };
+
+      const runMatrixTransition = (callback) => {
+        buildMatrixColumns();
+        matrixOverlay.classList.remove("is-active");
+        void matrixOverlay.offsetWidth;
+        matrixOverlay.classList.add("is-active");
+
+        window.setTimeout(() => {
+          callback();
+        }, 340);
+
+        window.setTimeout(() => {
+          matrixOverlay.classList.remove("is-active");
+        }, 980);
+      };
+
+      const simulation = {
+        panels: document.querySelectorAll(".ambient-window[data-sim-panel]"),
+        lines: document.querySelectorAll(".sim-line")
+      };
+
+      const updateSimulation = () => {
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const progress = Math.max(0, Math.min(1, window.scrollY / maxScroll));
+        document.documentElement.style.setProperty("--sim-progress", progress.toFixed(3));
+
+        const thresholds = [0.05, 0.16, 0.28, 0.4, 0.54, 0.68, 0.84];
+        let stage = 0;
+
+        thresholds.forEach((threshold, index) => {
+          if (progress >= threshold) {
+            stage = index + 1;
+          }
+        });
+
+        simulation.lines.forEach((line) => {
+          line.classList.toggle("is-visible", Number(line.dataset.stage || "0") <= stage);
+        });
+
+        const activePanel = stage <= 3 ? "recon" : stage <= 5 ? "framework" : "profile";
+        simulation.panels.forEach((panel) => {
+          panel.classList.toggle("is-current", panel.dataset.simPanel === activePanel);
+        });
+      };
+
+      const translations = {
+        fr: {
+          title: "Jimmy Puma | Stagiaire Cybers&eacute;curit&eacute;",
+          description: "CV en ligne de Jimmy Puma, stagiaire cybers&eacute;curit&eacute; en recherche d'un stage SOC junior ou pentest.",
+          availability: "Recherche de stage SOC junior / Pentest",
+          commandComments: ["# chargement du profil", "# image du profil"],
+          eyebrow: "Stagiaire cybers&eacute;curit&eacute; en reconversion",
+          headline: [
+            "Stagiaire",
+            "IFAPME - Conseiller cybers&eacute;curit&eacute;",
+            "Orientation SOC junior / Pentest"
+          ],
+          intro: "En reconversion vers la cybers&eacute;curit&eacute;, je recherche un stage au sein d'un <strong>SOC junior</strong> ou d'une &eacute;quipe <strong>pentest</strong> afin de consolider mes acquis techniques, approfondir mes r&eacute;flexes d'analyse et contribuer &agrave; des missions concr&egrave;tes autour de la d&eacute;tection, de l'investigation et de la s&eacute;curit&eacute; offensive. Mon parcours traduit une progression constante, une forte motivation et une vraie volont&eacute; de monter en comp&eacute;tences.",
+          miniLabels: [
+            "Certifications en cours",
+            "Socle technique",
+            "Axes d'int&eacute;r&ecirc;t"
+          ],
+          miniValues: [
+            "BTL1 - en pr&eacute;paration",
+            "PJPT - pr&eacute;vu apr&egrave;s validation du socle d&eacute;fensif",
+            "Bases r&eacute;seau",
+            "Windows / Linux",
+            "OSINT",
+            "Approche purple team"
+          ],
+          cvLink: "CV Papier",
+          certLink: "Certificats / Dipl&ocirc;mes",
+          linkedinLink: "LinkedIn",
+          portraitNoteTitle: "Profil engag&eacute; et motiv&eacute;",
+          portraitNoteText: "Rigueur, concentration et assiduit&eacute; au service d'une reconversion orient&eacute;e cybers&eacute;curit&eacute;.",
+          tags: ["SOC", "Pentest", "OSINT", "R&eacute;seau", "Windows", "Linux"],
+          sectionTitles: ["Exp&eacute;rience", "Formation", "Assistant local", "Comp&eacute;tences", "Contact"],
+          sectionSubtitles: [
+            "Parcours professionnel",
+            "Progression acad&eacute;mique",
+            "Trouve le CV papier",
+            "Technique et posture",
+            "Disponible pour opportunit&eacute;s"
+          ],
+          timelineTitles: [
+            "Ouvrier de production - Audi Brussels",
+            "Formation en conseiller cybers&eacute;curit&eacute; - IFAPME",
+            "Web design - Condorcet Saint-Ghislain",
+            "CESS - option langues &eacute;trang&egrave;res"
+          ],
+          timelineBodies: [
+            "Exp&eacute;rience longue en environnement industriel exigeant, avec une culture forte de la rigueur, du rythme, de la concentration et de la constance. Cette base alimente aujourd'hui ma transition vers un domaine technique o&ugrave; discipline et fiabilit&eacute; sont essentielles.",
+            "Mont&eacute;e en comp&eacute;tences orient&eacute;e cybers&eacute;curit&eacute;, avec un int&eacute;r&ecirc;t particulier pour la d&eacute;tection, l'analyse de menaces, l'OSINT et la s&eacute;curit&eacute; offensive.",
+            "Bachelier non concr&eacute;tis&eacute;, avec une exposition aux logiques web et &agrave; la culture num&eacute;rique.",
+            "Base scolaire orient&eacute;e communication et ouverture linguistique."
+          ],
+          stackTitles: [
+            "Connaissances techniques",
+            "Projets / Labs cybers&eacute;curit&eacute;",
+            "Outils ma&icirc;tris&eacute;s / Outils pratiqu&eacute;s",
+            "Comp&eacute;tences op&eacute;rationnelles",
+            "R&eacute;alisations",
+            "Qualit&eacute;s personnelles",
+            "Langues",
+            "Permis",
+            "Centres d'int&eacute;r&ecirc;t"
+          ],
+          stackBodies: [
+            "Bases r&eacute;seau, notions des protocoles et services courants, fondamentaux des syst&egrave;mes <strong>Windows</strong> et <strong>Linux</strong>, avec une app&eacute;tence pour les environnements de surveillance, d'investigation et de test de s&eacute;curit&eacute;.",
+            "<strong>Labs BTL1 + BTLO :</strong> analyse de logs Windows / SOC lab, investigation d'activit&eacute;s suspectes &agrave; partir de journaux, identification d'IOC, corr&eacute;lation d'&eacute;v&eacute;nements et triage initial.<br><br><strong>Lab Metasploitable 2 :</strong> reconnaissance, &eacute;num&eacute;ration de services, identification de vuln&eacute;rabilit&eacute;s, exploitation encadr&eacute;e en environnement de lab et documentation technique.<br><br><strong>Labs dans le cadre de la PJPT :</strong> analyse r&eacute;seau avec Wireshark, inspection de trafic, d&eacute;tection d'&eacute;changes anormaux, lecture de protocoles et identification d'artefacts r&eacute;seau.<br><br><strong>OSINT cibl&eacute; :</strong> recherche d'informations publiques, cartographie de surface d'exposition et collecte structur&eacute;e.",
+            "R&eacute;alisation de labs de d&eacute;tection et d'investigation sur journaux Windows.<br><br>Exploitation encadr&eacute;e de vuln&eacute;rabilit&eacute;s connues en environnement de test.<br><br>R&eacute;daction de rapports techniques structur&eacute;s apr&egrave;s exercices pratiques.<br><br>Utilisation d'outils SOC et forensic dans le cadre de la formation."
+          ],
+          pills: [
+            "Splunk",
+            "Wireshark",
+            "Autopsy",
+            "DeepBlueCLI",
+            "Nmap",
+            "Metasploit",
+            "Kali Linux",
+            "Sysmon",
+            "VirusTotal",
+            "Analyse de logs",
+            "&Eacute;v&eacute;nements s&eacute;curit&eacute;",
+            "Triage d'alertes N1",
+            "Identification d'IOC",
+            "Reconnaissance r&eacute;seau",
+            "&Eacute;num&eacute;ration",
+            "Analyse de trafic",
+            "R&eacute;daction technique",
+            "Recherche de vuln&eacute;rabilit&eacute;s",
+            "Investigation Windows / Linux",
+            "Concentr&eacute;",
+            "Motiv&eacute;",
+            "Assidu",
+            "Fran&ccedil;ais",
+            "Anglais",
+            "Italien",
+            "Permis B",
+            "OSINT",
+            "Informatique g&eacute;n&eacute;rale",
+            "Apprentissage purple"
+          ],
+          contactLabels: ["Adresse", "T&eacute;l&eacute;phone", "Email"],
+          footer: "<strong>Objectif actuel :</strong> int&eacute;grer une structure o&ugrave; je pourrai apprendre vite, mettre en pratique ma formation cybers&eacute;curit&eacute;, et &eacute;voluer sur des sujets <strong>SOC junior</strong> ou <strong>pentest</strong> avec une vraie implication terrain.",
+          chatWelcome: "Bonjour, je suis l'assistant local. Je peux t'aider &agrave; trouver le CV papier, LinkedIn, les certificats ou rappeler le type de stage recherch&eacute;.",
+          chatPlaceholder: "Pose une question...",
+          chatSend: "Envoyer",
+          chatDownload: "Telecharger le CV",
+          chatChips: [
+            "Ou est le CV papier ?",
+            "Montre LinkedIn",
+            "Voir certificats",
+            "Quel stage recherches-tu ?",
+            "Disponibilité"
+          ],
+          chatReplies: {
+            cv: "Le CV papier est disponible ici : <a href=\"./assets/jimmy-puma-cv-cyber.pdf\" download=\"Jimmy_Puma_CV_Cyber.pdf\">telecharger le PDF</a>.",
+            linkedin: "Voici le profil LinkedIn : <a href=\"https://www.linkedin.com/in/jimmy-puma-b11652378/\" target=\"_blank\" rel=\"noreferrer\">ouvrir LinkedIn</a>.",
+            certs: "Les certificats et badges sont consultables ici : <a href=\"https://www.credly.com/users/jimmy-puma\" target=\"_blank\" rel=\"noreferrer\">ouvrir Credly</a>.",
+            stage: "Je recherche un stage <strong>SOC junior</strong> ou <strong>pentest</strong> pour apprendre vite, pratiquer sur le terrain et progresser de mani&egrave;re concr&egrave;te.",
+            contact: "Tu peux aussi utiliser la fen&ecirc;tre contact pour retrouver l'adresse, l'email et le t&eacute;l&eacute;phone.",
+            fallback: "Je peux aider sur le CV papier, LinkedIn, les certificats, le stage recherch&eacute; ou les informations de contact."
+          }
+        },
+        en: {
+          title: "Jimmy Puma | Cybersecurity Intern",
+          description: "Online resume of Jimmy Puma, a cybersecurity intern seeking a junior SOC or pentesting internship.",
+          availability: "Seeking a junior SOC / pentest internship",
+          commandComments: ["# profile load", "# profile image"],
+          eyebrow: "Cybersecurity intern in career transition",
+          headline: [
+            "Intern",
+            "IFAPME - Cybersecurity advisor training",
+            "Junior SOC / Pentest focus"
+          ],
+          intro: "Currently transitioning into cybersecurity, I am looking for an internship within a <strong>junior SOC</strong> team or a <strong>pentest</strong> environment to strengthen my technical foundations, sharpen my analytical reflexes, and contribute to real-world missions around detection, investigation, and offensive security. My background reflects steady progress, strong motivation, and a genuine willingness to keep learning.",
+          miniLabels: [
+            "Certifications in progress",
+            "Technical foundation",
+            "Areas of interest"
+          ],
+          miniValues: [
+            "BTL1 - in progress",
+            "PJPT - planned after defensive baseline validation",
+            "Networking fundamentals",
+            "Windows / Linux",
+            "OSINT",
+            "Purple team mindset"
+          ],
+          cvLink: "Resume PDF",
+          certLink: "Certificates / Credentials",
+          linkedinLink: "LinkedIn",
+          portraitNoteTitle: "Committed and motivated profile",
+          portraitNoteText: "Rigor, focus, and consistency at the service of a cybersecurity-oriented career transition.",
+          tags: ["SOC", "Pentesting", "OSINT", "Networking", "Windows", "Linux"],
+          sectionTitles: ["Experience", "Education", "Local assistant", "Skills", "Contact"],
+          sectionSubtitles: [
+            "Professional background",
+            "Academic progression",
+            "Find the paper resume",
+            "Technical skills and mindset",
+            "Available for opportunities"
+          ],
+          timelineTitles: [
+            "Production operator - Audi Brussels",
+            "Cybersecurity advisor training - IFAPME",
+            "Web design - Condorcet Saint-Ghislain",
+            "Secondary school diploma - foreign languages option"
+          ],
+          timelineBodies: [
+            "Extensive experience in a demanding industrial environment, with a strong culture of rigor, pace, focus, and consistency. This foundation now supports my transition to a technical field where discipline and reliability are essential.",
+            "Skills development focused on cybersecurity, with a particular interest in detection, threat analysis, OSINT, and offensive security.",
+            "Unfinished bachelor's degree, with exposure to web logic and digital culture.",
+            "Academic foundation centered on communication and language skills."
+          ],
+          stackTitles: [
+            "Technical knowledge",
+            "Cybersecurity projects / labs",
+            "Tools used / practiced",
+            "Operational skills",
+            "Achievements",
+            "Personal qualities",
+            "Languages",
+            "Driving license",
+            "Interests"
+          ],
+          stackBodies: [
+            "Networking fundamentals, common protocols and services, Windows and Linux system basics, with a strong interest in monitoring, investigation, and security testing environments.",
+            "<strong>BTL1 + BTLO labs:</strong> Windows log analysis / SOC lab, investigation of suspicious activity from logs, IOC identification, event correlation, and initial triage.<br><br><strong>Metasploitable 2 lab:</strong> reconnaissance, service enumeration, vulnerability identification, supervised exploitation in a lab environment, and technical documentation.<br><br><strong>PJPT-related labs:</strong> network analysis with Wireshark, traffic inspection, detection of abnormal exchanges, protocol reading, and identification of network artefacts.<br><br><strong>Targeted OSINT:</strong> public information gathering, exposure surface mapping, and structured collection.",
+            "Completion of detection and investigation labs on Windows event logs.<br><br>Supervised exploitation of known vulnerabilities in a test environment.<br><br>Writing structured technical reports after practical exercises.<br><br>Use of SOC and forensic tools as part of the training path."
+          ],
+          pills: [
+            "Splunk",
+            "Wireshark",
+            "Autopsy",
+            "DeepBlueCLI",
+            "Nmap",
+            "Metasploit",
+            "Kali Linux",
+            "Sysmon",
+            "VirusTotal",
+            "Log analysis",
+            "Security events",
+            "Level 1 triage",
+            "IOC identification",
+            "Network reconnaissance",
+            "Enumeration",
+            "Traffic analysis",
+            "Technical reporting",
+            "Vulnerability research",
+            "Windows / Linux investigation",
+            "Focused",
+            "Motivated",
+            "Diligent",
+            "French",
+            "English",
+            "Italian",
+            "Driver's license B",
+            "OSINT",
+            "General IT",
+            "Purple team learning"
+          ],
+          contactLabels: ["Address", "Phone", "Email"],
+          footer: "<strong>Current goal:</strong> join a structure where I can learn quickly, put my cybersecurity training into practice, and grow on <strong>junior SOC</strong> or <strong>pentest</strong> topics with real hands-on involvement.",
+          chatWelcome: "Hello, I am the local assistant. I can help you find the paper resume, LinkedIn, certificates, or restate the internship target.",
+          chatPlaceholder: "Ask a question...",
+          chatSend: "Send",
+          chatDownload: "Download resume",
+          chatChips: [
+            "Where is the paper resume?",
+            "Show LinkedIn",
+            "View certificates",
+            "What internship are you seeking?",
+            "Availability"
+          ],
+          chatReplies: {
+            cv: "The paper resume is available here: <a href=\"./assets/jimmy-puma-cv-cyber.pdf\" download=\"Jimmy_Puma_CV_Cyber.pdf\">download the PDF</a>.",
+            linkedin: "Here is the LinkedIn profile: <a href=\"https://www.linkedin.com/in/jimmy-puma-b11652378/\" target=\"_blank\" rel=\"noreferrer\">open LinkedIn</a>.",
+            certs: "Certificates and badges are available here: <a href=\"https://www.credly.com/users/jimmy-puma\" target=\"_blank\" rel=\"noreferrer\">open Credly</a>.",
+            stage: "I am looking for a <strong>junior SOC</strong> or <strong>pentest</strong> internship to learn quickly, practice in a real environment, and keep progressing.",
+            contact: "You can also use the contact window to retrieve the address, email, and phone number.",
+            fallback: "I can help with the paper resume, LinkedIn, certificates, internship target, or contact details."
+          }
+        }
+      };
+
+      const normalizeQuery = (value) => {
+        return (value || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9@.+#/_ -]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      };
+
+      const escapeHtml = (value) => {
+        return (value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      };
+
+      const collapseText = (value) => {
+        return (value || "").replace(/\s+/g, " ").trim();
+      };
+
+      const truncateText = (value, max = 220) => {
+        const text = collapseText(value);
+        if (text.length <= max) {
+          return text;
+        }
+
+        return `${text.slice(0, Math.max(0, max - 1)).trimEnd()}…`;
+      };
+
+      const textFromSelector = (selector) => {
+        const node = document.querySelector(selector);
+        return node ? collapseText(node.textContent) : "";
+      };
+
+      const hrefFromSelector = (selector) => {
+        const node = document.querySelector(selector);
+        return node instanceof HTMLAnchorElement ? node.getAttribute("href") || "" : "";
+      };
+
+      const tokenizeQuery = (value) => {
+        const stopWords = new Set([
+          "a", "about", "after", "ainsi", "alors", "and", "avec", "dans", "de", "des", "du", "en", "et",
+          "for", "how", "i", "il", "je", "la", "le", "les", "me", "mon", "ou", "pour", "quel", "quelle",
+          "quels", "quelles", "qui", "sur", "the", "to", "ton", "tu", "un", "une", "where", "what", "your"
+        ]);
+
+        return Array.from(new Set(
+          normalizeQuery(value)
+            .split(/[^a-z0-9@.+#/_-]+/)
+            .filter((token) => token.length > 1 && !stopWords.has(token))
+        ));
+      };
+
+      const appendChatMessage = (role, content, asHtml = false) => {
+        if (!nodes.chatLog) {
+          return;
+        }
+
+        const message = document.createElement("div");
+        message.className = `chat-message ${role}`;
+
+        if (asHtml) {
+          message.innerHTML = content;
+        } else {
+          message.textContent = content;
+        }
+
+        nodes.chatLog.appendChild(message);
+        nodes.chatLog.scrollTop = nodes.chatLog.scrollHeight;
+      };
+
+      const searchState = {
+        items: []
+      };
+
+      const buildKnowledgeBase = (lang) => {
+        const isFrench = lang === "fr";
+        const items = [
+          {
+            id: "profile",
+            title: textFromSelector("#section-profile h1") || "Jimmy Puma",
+            summary: textFromSelector("#section-profile .intro"),
+            keywords: isFrench
+              ? ["profil", "jimmy", "presentation", "reconversion", "cybersecurite"]
+              : ["profile", "jimmy", "introduction", "career transition", "cybersecurity"],
+            selector: "#section-profile"
+          },
+          {
+            id: "cv",
+            title: nodes.cvLink?.textContent || (isFrench ? "CV Papier" : "Resume PDF"),
+            summary: isFrench
+              ? "Version PDF du CV disponible en telechargement direct depuis la page."
+              : "PDF version of the resume available for direct download from the page.",
+            keywords: ["cv", "resume", "pdf", "papier", "paper", "download", "telecharger"],
+            href: "./assets/jimmy-puma-cv-cyber.pdf",
+            linkLabel: isFrench ? "Telecharger le PDF" : "Download the PDF",
+            selector: "#section-profile"
+          },
+          {
+            id: "linkedin",
+            title: "LinkedIn",
+            summary: isFrench
+              ? "Acces direct au profil LinkedIn de Jimmy Puma."
+              : "Direct access to Jimmy Puma's LinkedIn profile.",
+            keywords: ["linkedin", "profil", "profile", "reseau", "network"],
+            href: "https://www.linkedin.com/in/jimmy-puma-b11652378/",
+            linkLabel: isFrench ? "Ouvrir LinkedIn" : "Open LinkedIn",
+            selector: "#section-profile"
+          },
+          {
+            id: "certifications",
+            title: nodes.certLink?.textContent || (isFrench ? "Certificats / Diplomes" : "Certificates / Credentials"),
+            summary: isFrench
+              ? "Badges, certificats et diplomes consultables via Credly."
+              : "Badges, certificates, and credentials available through Credly.",
+            keywords: ["certificats", "certifications", "diplomes", "credly", "badges", "btl1", "pjpt"],
+            href: "https://www.credly.com/users/jimmy-puma",
+            linkLabel: isFrench ? "Ouvrir Credly" : "Open Credly",
+            selector: "#section-profile"
+          },
+          {
+            id: "certification-tracks",
+            title: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(1) .label"),
+            summary: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(1)"),
+            keywords: ["btl1", "pjpt", "certification", "certifications", "en preparation", "in progress", "defensif", "defensive"],
+            selector: "#section-profile"
+          },
+          {
+            id: "stage",
+            title: textFromSelector(".availability"),
+            summary: textFromSelector("#section-profile .intro"),
+            keywords: ["stage", "internship", "soc", "junior", "pentest", "pentesting", "objectif", "goal"],
+            selector: "#section-profile"
+          },
+          {
+            id: "availability-info",
+            title: isFrench ? "Disponibilité" : "Availability",
+            summary: isFrench
+              ? "Disponibilité immédiate en cas d'offre d'emploi. Le stage pour l'année 2026/2027 s'effectuera à partir de décembre."
+              : "Immediate availability in case of a job offer. The internship for the 2026/2027 academic year can start from December.",
+            keywords: ["disponibilite", "availability", "immediate", "immediat", "emploi", "job", "decembre", "december", "2026", "2027", "offre"],
+            selector: "#section-assistant"
+          },
+          {
+            id: "foundation",
+            title: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(2) .label"),
+            summary: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(2)"),
+            keywords: ["windows", "linux", "reseau", "network", "foundation", "socle", "protocoles", "protocols"],
+            selector: "#section-profile"
+          },
+          {
+            id: "interests",
+            title: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(3) .label"),
+            summary: textFromSelector("#section-profile .hero-panels .mini-panel:nth-child(3)"),
+            keywords: ["osint", "purple", "purple team", "interets", "interests"],
+            selector: "#section-profile"
+          },
+          {
+            id: "experience",
+            title: textFromSelector("#section-experience .section-title h2"),
+            summary: textFromSelector("#section-experience .timeline-item"),
+            keywords: ["experience", "audi", "production", "ouvrier", "operator", "industrie", "industrial"],
+            selector: "#section-experience"
+          },
+          {
+            id: "education",
+            title: textFromSelector("#section-education .section-title h2"),
+            summary: textFromSelector("#section-education .timeline"),
+            keywords: ["formation", "education", "ifapme", "web design", "cess", "langues", "studies"],
+            selector: "#section-education"
+          },
+          {
+            id: "labs",
+            title: textFromSelector("#section-skills .stack-item:nth-child(2) > strong"),
+            summary: textFromSelector("#section-skills .stack-item:nth-child(2) p"),
+            keywords: ["labs", "btl1", "btlo", "pjpt", "wireshark", "metasploitable", "osint", "projets", "projects"],
+            selector: "#section-skills"
+          },
+          {
+            id: "tools",
+            title: textFromSelector("#section-skills .stack-item:nth-child(3) > strong"),
+            summary: textFromSelector("#section-skills .stack-item:nth-child(3)"),
+            keywords: ["outils", "tools", "splunk", "wireshark", "autopsy", "deepbluecli", "nmap", "metasploit", "kali", "sysmon", "virustotal"],
+            selector: "#section-skills"
+          },
+          {
+            id: "operations",
+            title: textFromSelector("#section-skills .stack-item:nth-child(4) > strong"),
+            summary: textFromSelector("#section-skills .stack-item:nth-child(4)"),
+            keywords: ["competences", "skills", "analyse", "logs", "triage", "ioc", "investigation", "reconnaissance", "enumeration", "traffic"],
+            selector: "#section-skills"
+          },
+          {
+            id: "achievements",
+            title: textFromSelector("#section-skills .stack-item:nth-child(5) > strong"),
+            summary: textFromSelector("#section-skills .stack-item:nth-child(5) p"),
+            keywords: ["realisations", "achievements", "rapports", "reports", "forensic", "windows", "labs"],
+            selector: "#section-skills"
+          },
+          {
+            id: "languages",
+            title: textFromSelector("#section-skills .stack-item:nth-child(7) > strong"),
+            summary: textFromSelector("#section-skills .stack-item:nth-child(7)"),
+            keywords: ["langues", "languages", "francais", "french", "anglais", "english", "italien", "italian"],
+            selector: "#section-skills"
+          },
+          {
+            id: "contact",
+            title: textFromSelector("#section-contact .section-title h2"),
+            summary: isFrench
+              ? "Coordonnees disponibles dans la fenetre contact."
+              : "Contact details are available in the contact window.",
+            keywords: ["contact", "coordonnees", "details", "email", "mail", "telephone", "phone", "adresse", "address"],
+            selector: "#section-contact"
+          },
+          {
+            id: "email",
+            title: isFrench ? "Email" : "Email",
+            summary: isFrench
+              ? "Lien direct pour envoyer un email."
+              : "Direct link to send an email.",
+            keywords: ["email", "mail", "contact", "hotmail"],
+            href: hrefFromSelector("#section-contact .contact-item:nth-child(3) a"),
+            linkLabel: isFrench ? "Envoyer un email" : "Send an email",
+            selector: "#section-contact"
+          },
+          {
+            id: "phone",
+            title: isFrench ? "Telephone" : "Phone",
+            summary: isFrench
+              ? "Lien direct pour appeler le numero de contact."
+              : "Direct link to call the contact number.",
+            keywords: ["telephone", "phone", "numero", "number", "appel", "call"],
+            href: hrefFromSelector("#section-contact .contact-item:nth-child(2) a"),
+            linkLabel: isFrench ? "Appeler" : "Call",
+            selector: "#section-contact"
+          },
+          {
+            id: "address",
+            title: isFrench ? "Adresse" : "Address",
+            summary: isFrench
+              ? "Lien direct vers l'adresse dans Maps."
+              : "Direct link to the address in Maps.",
+            keywords: ["adresse", "address", "maps", "quaregnon", "rue", "rieu"],
+            href: hrefFromSelector("#section-contact .contact-item:nth-child(1) a"),
+            linkLabel: isFrench ? "Ouvrir la carte" : "Open the map",
+            selector: "#section-contact"
+          }
+        ];
+
+        searchState.items = items
+          .filter((item) => item.title || item.summary || item.href)
+          .map((item) => {
+            const keywords = item.keywords || [];
+            const keywordsNorm = keywords.map((keyword) => normalizeQuery(keyword)).filter(Boolean);
+            const titleNorm = normalizeQuery(item.title);
+            const summaryNorm = normalizeQuery(item.summary);
+
+            return {
+              ...item,
+              keywordsNorm,
+              titleNorm,
+              summaryNorm,
+              searchText: normalizeQuery([item.title, item.summary, keywords.join(" ")].join(" "))
+            };
+          });
+      };
+
+      const scoreKnowledgeItem = (item, tokens, query) => {
+        let score = 0;
+
+        item.keywordsNorm.forEach((keyword) => {
+          if (keyword && query.includes(keyword)) {
+            score += keyword.includes(" ") ? 10 : 7;
+          }
+        });
+
+        tokens.forEach((token) => {
+          if (item.titleNorm.includes(token)) {
+            score += 5;
+          }
+
+          if (item.summaryNorm.includes(token)) {
+            score += 3;
+          }
+
+          if (item.searchText.includes(token)) {
+            score += 2;
+          }
+
+          if (item.keywordsNorm.some((keyword) => keyword === token || keyword.split(" ").includes(token))) {
+            score += 5;
+          }
+        });
+
+        if (tokens.length > 1 && tokens.every((token) => item.searchText.includes(token))) {
+          score += 8;
+        }
+
+        return score;
+      };
+
+      const buildJumpButton = (item, lang) => {
+        if (!item.selector) {
+          return "";
+        }
+
+        return `<button class="chat-jump" type="button" data-chat-target="${escapeHtml(item.selector)}">${lang === "fr" ? "Ouvrir la section" : "Open section"}</button>`;
+      };
+
+      const formatKnowledgeResult = (item, related, lang) => {
+        const bodyParts = [`<span class="chat-result-title">${escapeHtml(item.title)}</span>`];
+        const summary = item.summary ? `<div class="chat-result-body">${escapeHtml(truncateText(item.summary, item.href ? 170 : 210))}</div>` : "";
+        bodyParts.push(summary);
+
+        if (item.href && item.linkLabel) {
+          bodyParts.push(
+            `<div class="chat-result-body"><a href="${escapeHtml(item.href)}"${item.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${escapeHtml(item.linkLabel)}</a></div>`
+          );
+        }
+
+        bodyParts.push(buildJumpButton(item, lang));
+
+        if (related.length) {
+          const prefix = lang === "fr" ? "Connexe" : "Related";
+          const relatedTitles = related.map((entry) => escapeHtml(entry.title)).join(" · ");
+          bodyParts.push(`<div class="chat-result-body">${prefix}: ${relatedTitles}</div>`);
+        }
+
+        return bodyParts.join("");
+      };
+
+      const resolveChatQuery = (query, lang) => {
+        const content = translations[lang];
+        const normalizedQuery = normalizeQuery(query);
+        const tokens = tokenizeQuery(query);
+
+        if (!normalizedQuery || !tokens.length) {
+          return content?.chatReplies?.fallback || "";
+        }
+
+        const results = searchState.items
+          .map((item) => ({
+            ...item,
+            score: scoreKnowledgeItem(item, tokens, normalizedQuery)
+          }))
+          .filter((item) => item.score > 0)
+          .sort((left, right) => right.score - left.score);
+
+        if (!results.length) {
+          return content?.chatReplies?.fallback || "";
+        }
+
+        const primary = results[0];
+        const related = results.slice(1, 3).filter((item) => item.score >= Math.max(6, primary.score - 4));
+        return formatKnowledgeResult(primary, related, lang);
+      };
+
+      const focusTarget = (selector) => {
+        const target = document.querySelector(selector);
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        target.classList.remove("chat-targeted");
+        void target.offsetWidth;
+        target.classList.add("chat-targeted");
+
+        window.setTimeout(() => {
+          target.classList.remove("chat-targeted");
+        }, 1700);
+      };
+
+      const resetChat = (lang) => {
+        const content = translations[lang];
+        if (!content || !nodes.chatLog) {
+          return;
+        }
+
+        nodes.chatLog.innerHTML = "";
+        appendChatMessage("bot", content.chatWelcome, true);
+
+        if (nodes.chatInput) {
+          nodes.chatInput.value = "";
+        }
+      };
+
+      const replyToChat = (source) => {
+        const lang = toggle.dataset.lang || "fr";
+        const query = typeof source === "string" ? source : nodes.chatInput?.value || "";
+
+        if (!query.trim()) {
+          return;
+        }
+
+        if (typeof source !== "string" && nodes.chatInput) {
+          nodes.chatInput.value = "";
+        }
+
+        appendChatMessage("user", query);
+        appendChatMessage("bot", resolveChatQuery(query, lang), true);
+      };
+
+      const applyLanguage = (lang) => {
+        const content = translations[lang];
+        if (!content) {
+          return;
+        }
+
+        document.documentElement.lang = lang;
+        document.title = decodeEntities(content.title);
+
+        if (metaDescription) {
+          metaDescription.setAttribute("content", decodeEntities(content.description));
+        }
+
+        nodes.availability.innerHTML = content.availability;
+        setTexts(nodes.commandComments, content.commandComments);
+        nodes.eyebrow.innerHTML = content.eyebrow;
+        setHtml(nodes.headline, content.headline);
+        nodes.intro.innerHTML = content.intro;
+        setHtml(nodes.miniLabels, content.miniLabels);
+        setHtml(nodes.miniValues, content.miniValues);
+        nodes.cvLink.innerHTML = content.cvLink;
+        nodes.certLink.innerHTML = content.certLink;
+        nodes.linkedinLink.innerHTML = content.linkedinLink;
+        nodes.portraitNoteTitle.innerHTML = content.portraitNoteTitle;
+        nodes.portraitNoteText.innerHTML = content.portraitNoteText;
+        setHtml(nodes.tags, content.tags);
+        setHtml(nodes.sectionTitles, content.sectionTitles);
+        setHtml(nodes.sectionSubtitles, content.sectionSubtitles);
+        setHtml(nodes.timelineTitles, content.timelineTitles);
+        setHtml(nodes.timelineBodies, content.timelineBodies);
+        setHtml(nodes.stackTitles, content.stackTitles);
+        setHtml(nodes.stackBodies, content.stackBodies);
+        setHtml(nodes.pills, content.pills);
+        setHtml(nodes.contactLabels, content.contactLabels);
+        nodes.footer.innerHTML = content.footer;
+
+        if (nodes.chatInput) {
+          nodes.chatInput.setAttribute("placeholder", decodeEntities(content.chatPlaceholder));
+        }
+
+        if (nodes.chatSend) {
+          nodes.chatSend.textContent = decodeEntities(content.chatSend);
+        }
+
+        setHtml(nodes.chatChips, content.chatChips);
+        buildKnowledgeBase(lang);
+        resetChat(lang);
+
+        toggle.dataset.lang = lang;
+        toggle.setAttribute("aria-pressed", String(lang === "en"));
+        toggle.textContent = lang === "en" ? "FR" : "EN";
+      };
+
+      toggle.addEventListener("click", () => {
+        if (toggle.dataset.busy === "true") {
+          return;
+        }
+
+        const nextLanguage = toggle.dataset.lang === "fr" ? "en" : "fr";
+        toggle.dataset.busy = "true";
+        toggle.classList.add("is-busy");
+
+        runMatrixTransition(() => {
+          applyLanguage(nextLanguage);
+        });
+
+        window.setTimeout(() => {
+          toggle.dataset.busy = "false";
+          toggle.classList.remove("is-busy");
+        }, 1040);
+      });
+
+      nodes.chatSend?.addEventListener("click", () => {
+        replyToChat();
+      });
+
+      nodes.chatInput?.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          replyToChat();
+        }
+      });
+
+      nodes.chatChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          replyToChat(chip.textContent || "");
+        });
+      });
+
+      nodes.chatLog?.addEventListener("click", (event) => {
+        const target = event.target instanceof HTMLElement ? event.target.closest("[data-chat-target]") : null;
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        const selector = target.getAttribute("data-chat-target");
+        if (selector) {
+          focusTarget(selector);
+        }
+      });
+
+      applyLanguage("fr");
+      updateSimulation();
+
+      window.addEventListener("scroll", updateSimulation, { passive: true });
+      window.addEventListener("resize", () => {
+        buildMatrixColumns();
+        updateSimulation();
+      });
+    })();
+  </script>
 </body>
 </html>
+
